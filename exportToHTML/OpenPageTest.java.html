@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>OpenPageTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+OpenPageTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">org.junit.Assert</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.junit.Before</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.junit.After</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.junit.Test</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.By</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.WebDriver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.chrome.ChromeDriver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.chrome.ChromeOptions</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">OpenPageTest {</span>
+
+
+    <span class="s0">public </span><span class="s1">WebDriver driver</span><span class="s0">;</span>
+    <span class="s0">protected static </span><span class="s1">String url = </span><span class="s2">&quot;https://www.google.com/&quot;</span><span class="s0">;</span>
+
+    <span class="s1">@Before</span>
+    <span class="s0">public void </span><span class="s1">setUp() {</span>
+        <span class="s1">System.setProperty(</span><span class="s2">&quot;webdriver.chrome.driver&quot;</span><span class="s0">, </span><span class="s2">&quot;/usr/bin/chromedriver&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">driver = </span><span class="s0">new </span><span class="s1">ChromeDriver()</span><span class="s0">;</span>
+        <span class="s1">driver.manage().window().maximize()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">correctOpen() {</span>
+        <span class="s1">driver.get(url)</span><span class="s0">;</span>
+        <span class="s1">Assert.assertEquals(driver.getTitle()</span><span class="s0">, </span><span class="s2">&quot;Google&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@After</span>
+    <span class="s0">public void </span><span class="s1">tearDown() {</span>
+        <span class="s1">driver.quit()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
