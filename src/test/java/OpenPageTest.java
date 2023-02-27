@@ -24,6 +24,7 @@ public class OpenPageTest {
     public void correctOpen() {
         driver.get(url);
         Assert.assertEquals(driver.getTitle(), "Google");
+
     }
 
     @After
