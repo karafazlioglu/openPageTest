@@ -26,7 +26,6 @@ public class OpenPageTest {
         Assert.assertEquals(driver.getTitle(), "Google");
 
     }
-
     @After
     public void tearDown() {
         driver.quit();
