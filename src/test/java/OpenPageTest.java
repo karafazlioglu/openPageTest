@@ -16,29 +16,28 @@ import org.openqa.selenium.interactions.SourceType;
 import java.awt.*;
 import java.time.Duration;
 
-public class OpenPageTest {
+public class OpenPageTest {         // openpagetest adında bir sınıf açılır
 
 
-    public WebDriver driver;
-    protected static String url = "https://www.network.com.tr/";
+    public WebDriver driver;        // driver adında bir webdriver tanımlanır
+    protected static String url = "https://www.network.com.tr/";        // string url ine gidilecek web sitesinin adresi depolanır
 
     @Before
-    public void setUp()
+    public void setUp()         // setup sınıfı başlatılır
     {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");         // chrome driverın lokasyonu belirtilerek set edilir
+        driver = new ChromeDriver();            // driver webdriverı chrome drivera atanır
+        driver.manage().window().maximize();        // chrome ekranı maksimize edilir
 
     }
 
     @Test
-    public void correctOpen() {
+    public void openPageTest() {             // sayfa açılımını test eden sınıf başlatılır
 
-        driver.get(url);
-        //Assert.assertEquals(driver.getTitle(), "NetWork");
-        //Assert.assertEquals(driver.getCurrentUrl(), "https://www.network.com.tr/");
+        driver.get(url);            // sayfaya get metoduyla gidilir
+        //Assert.assertEquals(driver.getTitle(), "NetWork");            // sayfa başlığının network olduğu test edilir
+        //Assert.assertEquals(driver.getCurrentUrl(), "https://www.network.com.tr/");       // sayfa url inin başta url stringine atadığımız url olduğu test edilir
 
-        driver.get(url);
         WebElement arKutu = driver.findElement(By.xpath("//input[@name='searchKey']"));
         arKutu.sendKeys("ceket");
         arKutu.submit();
@@ -53,7 +52,6 @@ public class OpenPageTest {
         action.moveToElement(hover).build().perform();
 
         WebElement sizeCl = driver.findElement(By.xpath("//label[@extcode='1083770004']"));
-        sizeCl.click();
         action.click(sizeCl);
 
         WebElement basket = driver.findElement(By.xpath("//button[@class='header__basketTrigger js-basket-trigger -desktop']"));
@@ -67,8 +65,8 @@ public class OpenPageTest {
         String op = oldPrice.getText();
         System.out.println(op);
 
-        //WebElement go = driver.findElement(By.xpath("//a[@class='button -primary header__basket--checkout header__basketModal -checkout']"));
-        //action.click(go);
+        WebElement go = driver.findElement(By.xpath("//a[@class='button -primary header__basket--checkout header__basketModal -checkout']"));
+        action.click(go);
 
         //WebElement cont = driver.findElement(By.xpath("//a[@class='button -primary header__basket--checkout header__basketModal -checkout']"));
 
